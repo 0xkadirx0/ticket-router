@@ -1,0 +1,8 @@
+{
+  "student_name": "ABDULKADER BARAKAT",
+  "student_id": "229913331",
+  "repo_url": "https://github.com/0xkadirx0/ticket-router",
+  "video_url": "https://youtu.be/jO-4-i-Eom0",
+  "hf_repo": "0xkadirx0/ticket-router",
+  "ai_usage": "Claude (Anthropic) was used to write and debug the Python code in this repository (data pipeline, training scripts, Gradio app, report generator) and to draft the slides. I ran all training and evaluation myself; every number in this presentation comes from results/results.json produced by my own runs. I reviewed the code and can explain every component."
+}

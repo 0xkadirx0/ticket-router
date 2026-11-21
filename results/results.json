@@ -1,0 +1,1882 @@
+{
+ "date": "2026-11-21",
+ "hardware": "Intel(R) Xeon(R) CPU @ 2.00GHz; 2 logical cores; Linux 6.6.159+; torch threads=1; CPU-only inference",
+ "n_test": 5500,
+ "n_test_oos": 1000,
+ "rows": [
+  {
+   "model": "tf-idf + LogReg",
+   "rung": "1 classical baseline",
+   "accuracy": 0.7729090909090909,
+   "in_scope_accuracy": 0.9095555555555556,
+   "oos_recall": 0.158,
+   "size_mb": 30.50777530670166,
+   "latency_ms": 23.221929869969244,
+   "latency_std_ms": 1.3822603833653866,
+   "latency_runs": 100
+  },
+  {
+   "model": "word2vec + FFN (SGD)",
+   "rung": "2 neural network",
+   "accuracy": 0.7832727272727272,
+   "in_scope_accuracy": 0.8871111111111111,
+   "oos_recall": 0.316,
+   "size_mb": 2.4292678833007812,
+   "latency_ms": 0.23041182003908034,
+   "latency_std_ms": 0.0406238529223573,
+   "latency_runs": 100
+  },
+  {
+   "model": "BERT-base fine-tuned (fp32)",
+   "rung": "3 Transformer",
+   "accuracy": 0.8721818181818182,
+   "in_scope_accuracy": 0.9635555555555556,
+   "oos_recall": 0.461,
+   "size_mb": 418.1606693267822,
+   "latency_ms": 103.83770295996328,
+   "latency_std_ms": 18.189577700898553,
+   "latency_runs": 100
+  },
+  {
+   "model": "DistilBERT-KD (fp32)",
+   "rung": "3b distilled student",
+   "accuracy": 0.8647272727272727,
+   "in_scope_accuracy": 0.9582222222222222,
+   "oos_recall": 0.444,
+   "size_mb": 255.88903141021729,
+   "latency_ms": 52.56195520999427,
+   "latency_std_ms": 7.960395707246373,
+   "latency_runs": 100
+  },
+  {
+   "model": "DistilBERT-KD (INT8)",
+   "rung": "4 quantized Transformer",
+   "accuracy": 0.8670909090909091,
+   "in_scope_accuracy": 0.9528888888888889,
+   "oos_recall": 0.481,
+   "size_mb": 132.39874744415283,
+   "latency_ms": 14.548035119914857,
+   "latency_std_ms": 2.8699950895576816,
+   "latency_runs": 100
+  }
+ ],
+ "typo": {
+  "n": 1000,
+  "clean": 0.882,
+  "typos": 0.762,
+  "typos_corrected": 0.829,
+  "model": "DistilBERT-KD-int8"
+ },
+ "errors": {
+  "tf-idf + LogReg": [
+   {
+    "text": "what's the word for trees in norway",
+    "gold": "translate",
+    "pred": "definition",
+    "conf": 0.2045845423848961
+   },
+   {
+    "text": "what's the french word you use for potato",
+    "gold": "translate",
+    "pred": "spelling",
+    "conf": 0.069888092007168
+   },
+   {
+    "text": "what would the word for grass be in finland",
+    "gold": "translate",
+    "pred": "definition",
+    "conf": 0.1085710751705166
+   },
+   {
+    "text": "how much money can i transfer today",
+    "gold": "transfer",
+    "pred": "income",
+    "conf": 0.4301597334748519
+   },
+   {
+    "text": "repeat what the weather will be like",
+    "gold": "transfer",
+    "pred": "weather",
+    "conf": 0.9717241971341544
+   },
+   {
+    "text": "who set up the numbers for it",
+    "gold": "timer",
+    "pred": "who_made_you",
+    "conf": 0.1928271958675099
+   },
+   {
+    "text": "what is the definiton of auspicious",
+    "gold": "definition",
+    "pred": "calculator",
+    "conf": 0.8007600298777591
+   },
+   {
+    "text": "what is the reason humans even exist",
+    "gold": "meaning_of_life",
+    "pred": "calculator",
+    "conf": 0.09530761352485795
+   },
+   {
+    "text": "is there a reason beyond biology about why humans are alive",
+    "gold": "meaning_of_life",
+    "pred": "account_blocked",
+    "conf": 0.4675145250130693
+   },
+   {
+    "text": "what's the answer to it all",
+    "gold": "meaning_of_life",
+    "pred": "calculator",
+    "conf": 0.18890411853795214
+   },
+   {
+    "text": "how to i change the policy on my insurace",
+    "gold": "insurance_change",
+    "pred": "oil_change_how",
+    "conf": 0.6583898908460866
+   },
+   {
+    "text": "i need to sign up for a new allstate plan",
+    "gold": "insurance_change",
+    "pred": "new_card",
+    "conf": 0.3261760298571264
+   },
+   {
+    "text": "how do i sign up for a new allstatedplan",
+    "gold": "insurance_change",
+    "pred": "new_card",
+    "conf": 0.319991364322907
+   },
+   {
+    "text": "does the state department say anything about traveling to haiti",
+    "gold": "travel_alert",
+    "pred": "restaurant_reviews",
+    "conf": 0.04941573935840433
+   },
+   {
+    "text": "safety concerns for malaysia",
+    "gold": "travel_alert",
+    "pred": "ingredient_substitution",
+    "conf": 0.04668167793902011
+   },
+   {
+    "text": "how is a vacation request done",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.7140417405034459
+   },
+   {
+    "text": "how is a vacation request made",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.6118775831709153
+   },
+   {
+    "text": "what is the process of making a vacation request",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.47793765961498386
+   },
+   {
+    "text": "can you help me plan a vacation",
+    "gold": "pto_request",
+    "pred": "what_can_i_ask_you",
+    "conf": 0.24974977219751326
+   },
+   {
+    "text": "is it ok if i use some of my pto on may 24th to may 29th",
+    "gold": "pto_request",
+    "pred": "ingredient_substitution",
+    "conf": 0.07001361348936987
+   },
+   {
+    "text": "can i purchase a vacation using this",
+    "gold": "pto_request",
+    "pred": "order",
+    "conf": 0.17615206026569988
+   },
+   {
+    "text": "vacation request information",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.7495233983892212
+   },
+   {
+    "text": "vacation request please",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.6671643021297841
+   },
+   {
+    "text": "how can i up my credit score",
+    "gold": "improve_credit_score",
+    "pred": "credit_score",
+    "conf": 0.6203580848329355
+   },
+   {
+    "text": "can you explain to me how i might boost my credit score",
+    "gold": "improve_credit_score",
+    "pred": "credit_score",
+    "conf": 0.6416166201462344
+   },
+   {
+    "text": "can you tell me some strategies for raising my credit score",
+    "gold": "improve_credit_score",
+    "pred": "credit_score",
+    "conf": 0.5716946466327417
+   },
+   {
+    "text": "i have a revolving store card and defaulted so will my fico score be affected",
+    "gold": "improve_credit_score",
+    "pred": "replacement_card_duration",
+    "conf": 0.1612696479386306
+   },
+   {
+    "text": "will my fico score decrease if i increase my student loan debt",
+    "gold": "improve_credit_score",
+    "pred": "pay_bill",
+    "conf": 0.09499100429451539
+   },
+   {
+    "text": "i'd like to use you using russian",
+    "gold": "change_language",
+    "pred": "what_is_your_name",
+    "conf": 0.06126776931233621
+   },
+   {
+    "text": "can you tell me the date of my last check",
+    "gold": "payday",
+    "pred": "last_maintenance",
+    "conf": 0.49706322705666167
+   },
+   {
+    "text": "what's the date on my last pay stub",
+    "gold": "payday",
+    "pred": "last_maintenance",
+    "conf": 0.29330546980141753
+   },
+   {
+    "text": "when did i last collect my salary",
+    "gold": "payday",
+    "pred": "last_maintenance",
+    "conf": 0.8125239755164488
+   },
+   {
+    "text": "when's pay day for me",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.3506323057106857
+   },
+   {
+    "text": "when's my next pay day",
+    "gold": "payday",
+    "pred": "next_holiday",
+    "conf": 0.5487295327054587
+   },
+   {
+    "text": "what day will i earn my payment from work",
+    "gold": "payday",
+    "pred": "income",
+    "conf": 0.2990118374503541
+   },
+   {
+    "text": "what day can i expect to receive payment on",
+    "gold": "payday",
+    "pred": "date",
+    "conf": 0.06358075739024263
+   },
+   {
+    "text": "when will my payment be deposited",
+    "gold": "payday",
+    "pred": "flight_status",
+    "conf": 0.1908682172996701
+   },
+   {
+    "text": "can credit card companies expedite delivery of reissued credit cards",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.11986623802037095
+   },
+   {
+    "text": "can you call the help desk line for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "make_call",
+    "conf": 0.21376707852679336
+   },
+   {
+    "text": "how can i request a new credit card",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.7895185125944804
+   },
+   {
+    "text": "what's the phone number for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "redeem_rewards",
+    "conf": 0.15365232801152912
+   },
+   {
+    "text": "i need to know the time it takes to get a new credit card sent to someone who lost theirs",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.34109062213700814
+   },
+   {
+    "text": "what is amount of time it takes to get a new credit card i lost mine recently",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.3733075104456116
+   },
+   {
+    "text": "is it after noon",
+    "gold": "time",
+    "pred": "weather",
+    "conf": 0.2221698037538592
+   },
+   {
+    "text": "tell time for another city: dallas",
+    "gold": "time",
+    "pred": "cook_time",
+    "conf": 0.17437794609308616
+   },
+   {
+    "text": "what time is boarding scheduled",
+    "gold": "flight_status",
+    "pred": "time",
+    "conf": 0.8586578970049599
+   },
+   {
+    "text": "refer to me as bailey",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.49387364430676584
+   },
+   {
+    "text": "can you call me a different name",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.5894212894848547
+   },
+   {
+    "text": "could you call me a different name",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.5952480333004265
+   },
+   {
+    "text": "could you call me a different name, please",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.4488810987563784
+   },
+   {
+    "text": "could you call me by a different name, please",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.4145037024306237
+   },
+   {
+    "text": "can you call me a different name, please",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.43314444409035097
+   },
+   {
+    "text": "ai answer my questions with my name first which is deb",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.2731908810735326
+   },
+   {
+    "text": "please switch my name",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.5646195378251786
+   },
+   {
+    "text": "change name for me",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.7026426895548156
+   },
+   {
+    "text": "a hidden government facility",
+    "gold": "where_are_you_from",
+    "pred": "oos",
+    "conf": 0.03460945971432728
+   },
+   {
+    "text": "add laundry detergent to the list",
+    "gold": "shopping_list_update",
+    "pred": "todo_list_update",
+    "conf": 0.5745386671812684
+   },
+   {
+    "text": "put milk on my shopping list",
+    "gold": "shopping_list_update",
+    "pred": "shopping_list",
+    "conf": 0.6824194587096118
+   },
+   {
+    "text": "i don't need eggs anymore, but i do need milk",
+    "gold": "shopping_list_update",
+    "pred": "cancel",
+    "conf": 0.08058460591558073
+   },
+   {
+    "text": "i need milk on my shopping list",
+    "gold": "shopping_list_update",
+    "pred": "shopping_list",
+    "conf": 0.8476055382443531
+   }
+  ],
+  "word2vec + FFN (SGD)": [
+   {
+    "text": "what's the word for trees in norway",
+    "gold": "translate",
+    "pred": "oos",
+    "conf": 0.36596545577049255
+   },
+   {
+    "text": "what would the word for grass be in finland",
+    "gold": "translate",
+    "pred": "timezone",
+    "conf": 0.39247292280197144
+   },
+   {
+    "text": "what's the spanish word for dog",
+    "gold": "translate",
+    "pred": "spelling",
+    "conf": 0.8516182899475098
+   },
+   {
+    "text": "repeat what the weather will be like",
+    "gold": "transfer",
+    "pred": "weather",
+    "conf": 0.998805046081543
+   },
+   {
+    "text": "who set up the numbers for it",
+    "gold": "timer",
+    "pred": "smart_home",
+    "conf": 0.6714664697647095
+   },
+   {
+    "text": "let me know when it's been 5 minutes",
+    "gold": "timer",
+    "pred": "weather",
+    "conf": 0.6269242763519287
+   },
+   {
+    "text": "what is the definiton of auspicious",
+    "gold": "definition",
+    "pred": "calculator",
+    "conf": 0.9261839389801025
+   },
+   {
+    "text": "can you tell me the meaning of fluctuate",
+    "gold": "definition",
+    "pred": "meaning_of_life",
+    "conf": 0.6476556062698364
+   },
+   {
+    "text": "i'd like to know what bitcoin means",
+    "gold": "definition",
+    "pred": "tell_joke",
+    "conf": 0.8911097049713135
+   },
+   {
+    "text": "i heard some woman say she was going to yerd me, what's that mean",
+    "gold": "definition",
+    "pred": "thank_you",
+    "conf": 0.5525631904602051
+   },
+   {
+    "text": "please explain the word catastrophic to me",
+    "gold": "definition",
+    "pred": "oos",
+    "conf": 0.6602134704589844
+   },
+   {
+    "text": "what is the reason humans even exist",
+    "gold": "meaning_of_life",
+    "pred": "oos",
+    "conf": 0.8924733996391296
+   },
+   {
+    "text": "what's the answer to it all",
+    "gold": "meaning_of_life",
+    "pred": "cancel",
+    "conf": 0.3177932798862457
+   },
+   {
+    "text": "who do i contact about updating my insurance",
+    "gold": "insurance_change",
+    "pred": "who_do_you_work_for",
+    "conf": 0.8979207277297974
+   },
+   {
+    "text": "how do i sign up for a new allstatedplan",
+    "gold": "insurance_change",
+    "pred": "recipe",
+    "conf": 0.6482487916946411
+   },
+   {
+    "text": "phone number to state farm to change insurance",
+    "gold": "insurance_change",
+    "pred": "pay_bill",
+    "conf": 0.5755167007446289
+   },
+   {
+    "text": "is my phone somewhere around here",
+    "gold": "find_phone",
+    "pred": "order_status",
+    "conf": 0.9194201231002808
+   },
+   {
+    "text": "help, i've lost my cellphone!",
+    "gold": "find_phone",
+    "pred": "report_lost_card",
+    "conf": 0.9500026702880859
+   },
+   {
+    "text": "do you know my phone's location",
+    "gold": "find_phone",
+    "pred": "current_location",
+    "conf": 0.8977091312408447
+   },
+   {
+    "text": "what's my phone's location",
+    "gold": "find_phone",
+    "pred": "current_location",
+    "conf": 0.5029885768890381
+   },
+   {
+    "text": "locate my cellphone in this room",
+    "gold": "find_phone",
+    "pred": "w2",
+    "conf": 0.9547387957572937
+   },
+   {
+    "text": "will i be safe going to south america",
+    "gold": "travel_alert",
+    "pred": "travel_notification",
+    "conf": 0.5031805634498596
+   },
+   {
+    "text": "am i safe to go to africa",
+    "gold": "travel_alert",
+    "pred": "vaccines",
+    "conf": 0.9449487924575806
+   },
+   {
+    "text": "does the state department say anything about traveling to haiti",
+    "gold": "travel_alert",
+    "pred": "traffic",
+    "conf": 0.33675605058670044
+   },
+   {
+    "text": "safety concerns for malaysia",
+    "gold": "travel_alert",
+    "pred": "restaurant_reservation",
+    "conf": 0.3254300355911255
+   },
+   {
+    "text": "how is a vacation request made",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.7813374400138855
+   },
+   {
+    "text": "can i take pto from the end of the month to the 5th of the next month",
+    "gold": "pto_request",
+    "pred": "calendar_update",
+    "conf": 0.8462845087051392
+   },
+   {
+    "text": "can you help me plan a vacation",
+    "gold": "pto_request",
+    "pred": "insurance_change",
+    "conf": 0.9802749752998352
+   },
+   {
+    "text": "how do i plan a vacation",
+    "gold": "pto_request",
+    "pred": "insurance_change",
+    "conf": 0.8970397710800171
+   },
+   {
+    "text": "how do i get help with a vacation itinerary",
+    "gold": "pto_request",
+    "pred": "what_can_i_ask_you",
+    "conf": 0.28476589918136597
+   },
+   {
+    "text": "vacation request information",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.8657082319259644
+   },
+   {
+    "text": "vacation request please",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.6026116013526917
+   },
+   {
+    "text": "give me some ideas for boosting my credit score",
+    "gold": "improve_credit_score",
+    "pred": "credit_score",
+    "conf": 0.8437634110450745
+   },
+   {
+    "text": "give me tips on improving my credit score",
+    "gold": "improve_credit_score",
+    "pred": "credit_score",
+    "conf": 0.532479465007782
+   },
+   {
+    "text": "i have a revolving store card and defaulted so will my fico score be affected",
+    "gold": "improve_credit_score",
+    "pred": "expiration_date",
+    "conf": 0.45426011085510254
+   },
+   {
+    "text": "what is some trivia about the weather",
+    "gold": "fun_fact",
+    "pred": "weather",
+    "conf": 0.6058018803596497
+   },
+   {
+    "text": "i'd like to speak in portuguese",
+    "gold": "change_language",
+    "pred": "change_accent",
+    "conf": 0.552030622959137
+   },
+   {
+    "text": "i want to use spanish with you",
+    "gold": "change_language",
+    "pred": "whisper_mode",
+    "conf": 0.8798909187316895
+   },
+   {
+    "text": "is it possible to talk to you in mandarin",
+    "gold": "change_language",
+    "pred": "whisper_mode",
+    "conf": 0.7107599377632141
+   },
+   {
+    "text": "i'd like to use you using russian",
+    "gold": "change_language",
+    "pred": "whisper_mode",
+    "conf": 0.4574974477291107
+   },
+   {
+    "text": "can you tell me the date of my last check",
+    "gold": "payday",
+    "pred": "date",
+    "conf": 0.6282103061676025
+   },
+   {
+    "text": "when did i last collect my salary",
+    "gold": "payday",
+    "pred": "last_maintenance",
+    "conf": 0.8009655475616455
+   },
+   {
+    "text": "what day is payday",
+    "gold": "payday",
+    "pred": "date",
+    "conf": 0.9261050820350647
+   },
+   {
+    "text": "when's pay day for me",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.527411937713623
+   },
+   {
+    "text": "look up when my payday is supposed to be",
+    "gold": "payday",
+    "pred": "weather",
+    "conf": 0.38843005895614624
+   },
+   {
+    "text": "what day will i earn my payment from work",
+    "gold": "payday",
+    "pred": "income",
+    "conf": 0.986349880695343
+   },
+   {
+    "text": "when is the next payday i can look forward to",
+    "gold": "payday",
+    "pred": "oos",
+    "conf": 0.5423031449317932
+   },
+   {
+    "text": "when will my payment be deposited",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.5201011896133423
+   },
+   {
+    "text": "is it payday",
+    "gold": "payday",
+    "pred": "weather",
+    "conf": 0.9001702070236206
+   },
+   {
+    "text": "can credit card companies expedite delivery of reissued credit cards",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.5306772589683533
+   },
+   {
+    "text": "can you call the help desk line for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "damaged_card",
+    "conf": 0.22156541049480438
+   },
+   {
+    "text": "how can i request a new credit card",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.9998551607131958
+   },
+   {
+    "text": "what's the phone number for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "bill_due",
+    "conf": 0.7166121006011963
+   },
+   {
+    "text": "i need to know the time it takes to get a new credit card sent to someone who lost theirs",
+    "gold": "replacement_card_duration",
+    "pred": "report_lost_card",
+    "conf": 0.6159865856170654
+   },
+   {
+    "text": "what is the shipping time for my card",
+    "gold": "replacement_card_duration",
+    "pred": "flight_status",
+    "conf": 0.3801957666873932
+   },
+   {
+    "text": "how much longer before the card is mailed to me",
+    "gold": "replacement_card_duration",
+    "pred": "expiration_date",
+    "conf": 0.8389981389045715
+   },
+   {
+    "text": "is it after noon",
+    "gold": "time",
+    "pred": "date",
+    "conf": 0.4107731878757477
+   },
+   {
+    "text": "is it six o clock yet",
+    "gold": "time",
+    "pred": "weather",
+    "conf": 0.8038203716278076
+   },
+   {
+    "text": "tell time for another city: dallas",
+    "gold": "time",
+    "pred": "travel_suggestion",
+    "conf": 0.4385332465171814
+   },
+   {
+    "text": "don't call me bill anymore - call me bob",
+    "gold": "change_user_name",
+    "pred": "make_call",
+    "conf": 0.9241162538528442
+   }
+  ],
+  "BERT-base fine-tuned (fp32)": [
+   {
+    "text": "repeat what the weather will be like",
+    "gold": "transfer",
+    "pred": "weather",
+    "conf": 0.9751162528991699
+   },
+   {
+    "text": "who set up the numbers for it",
+    "gold": "timer",
+    "pred": "who_made_you",
+    "conf": 0.9742723703384399
+   },
+   {
+    "text": "is there a reason beyond biology about why humans are alive",
+    "gold": "meaning_of_life",
+    "pred": "oos",
+    "conf": 0.4544509947299957
+   },
+   {
+    "text": "what's the answer to it all",
+    "gold": "meaning_of_life",
+    "pred": "maybe",
+    "conf": 0.5539393424987793
+   },
+   {
+    "text": "what is the procedure for signing up for a new allstate plan",
+    "gold": "insurance_change",
+    "pred": "new_card",
+    "conf": 0.468377023935318
+   },
+   {
+    "text": "how do i sign up for a new allstatedplan",
+    "gold": "insurance_change",
+    "pred": "new_card",
+    "conf": 0.4196087419986725
+   },
+   {
+    "text": "vacation request information",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.825588047504425
+   },
+   {
+    "text": "vacation request please",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.7778706550598145
+   },
+   {
+    "text": "i have a revolving store card and defaulted so will my fico score be affected",
+    "gold": "improve_credit_score",
+    "pred": "damaged_card",
+    "conf": 0.7751871347427368
+   },
+   {
+    "text": "what day will i earn my payment from work",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.8161580562591553
+   },
+   {
+    "text": "what day can i expect to receive payment on",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.9566102623939514
+   },
+   {
+    "text": "can credit card companies expedite delivery of reissued credit cards",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.41389626264572144
+   },
+   {
+    "text": "can you call the help desk line for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "make_call",
+    "conf": 0.11497049778699875
+   },
+   {
+    "text": "how can i request a new credit card",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.9855996370315552
+   },
+   {
+    "text": "what's the phone number for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "account_blocked",
+    "conf": 0.24720162153244019
+   },
+   {
+    "text": "tell time for another city: dallas",
+    "gold": "time",
+    "pred": "distance",
+    "conf": 0.824408769607544
+   },
+   {
+    "text": "a hidden government facility",
+    "gold": "where_are_you_from",
+    "pred": "oos",
+    "conf": 0.785197913646698
+   },
+   {
+    "text": "where did you grow up",
+    "gold": "where_are_you_from",
+    "pred": "how_old_are_you",
+    "conf": 0.9432340860366821
+   },
+   {
+    "text": "the list should also have 2 loaves of bread",
+    "gold": "shopping_list_update",
+    "pred": "shopping_list",
+    "conf": 0.6426984667778015
+   },
+   {
+    "text": "i'd like to make a reservation at rooth chris, can you do that",
+    "gold": "restaurant_reservation",
+    "pred": "accept_reservations",
+    "conf": 0.9226760268211365
+   },
+   {
+    "text": "are there any open reservations at outback tonight",
+    "gold": "restaurant_reservation",
+    "pred": "accept_reservations",
+    "conf": 0.9862261414527893
+   },
+   {
+    "text": "what's the mileage to get the the taj mahal in atlantic city",
+    "gold": "distance",
+    "pred": "mpg",
+    "conf": 0.9329236745834351
+   },
+   {
+    "text": "do i have a ways to go or am i close to getting to penn station",
+    "gold": "distance",
+    "pred": "directions",
+    "conf": 0.931321382522583
+   },
+   {
+    "text": "what's your designation",
+    "gold": "user_name",
+    "pred": "what_is_your_name",
+    "conf": 0.973844051361084
+   },
+   {
+    "text": "what time is it in phoenix",
+    "gold": "timezone",
+    "pred": "time",
+    "conf": 0.9870945811271667
+   },
+   {
+    "text": "go to upcoming song",
+    "gold": "next_song",
+    "pred": "play_music",
+    "conf": 0.6145666241645813
+   },
+   {
+    "text": "i dont want to listen to this song",
+    "gold": "next_song",
+    "pred": "play_music",
+    "conf": 0.4140837490558624
+   },
+   {
+    "text": "is my visa bill over my limit this month",
+    "gold": "transactions",
+    "pred": "bill_due",
+    "conf": 0.6143576502799988
+   },
+   {
+    "text": "what have i spent things on",
+    "gold": "transactions",
+    "pred": "spending_history",
+    "conf": 0.981816291809082
+   },
+   {
+    "text": "show what i have spent things on",
+    "gold": "transactions",
+    "pred": "spending_history",
+    "conf": 0.9821045994758606
+   },
+   {
+    "text": "how much have i spent on my debit card this month",
+    "gold": "transactions",
+    "pred": "spending_history",
+    "conf": 0.9551773071289062
+   },
+   {
+    "text": "how much was my last target trip",
+    "gold": "transactions",
+    "pred": "pto_used",
+    "conf": 0.2653194069862366
+   },
+   {
+    "text": "what's the food can easily get in canada",
+    "gold": "restaurant_suggestion",
+    "pred": "meal_suggestion",
+    "conf": 0.8704528212547302
+   },
+   {
+    "text": "today is the day i should pay my electric bill",
+    "gold": "pay_bill",
+    "pred": "bill_due",
+    "conf": 0.9743059873580933
+   },
+   {
+    "text": "pay $175 on my visa",
+    "gold": "pay_bill",
+    "pred": "min_payment",
+    "conf": 0.8176186084747314
+   },
+   {
+    "text": "when will i hear back about my days off",
+    "gold": "pto_request_status",
+    "pred": "next_holiday",
+    "conf": 0.9726226925849915
+   },
+   {
+    "text": "am i okay to take those vacation days",
+    "gold": "pto_request_status",
+    "pred": "pto_balance",
+    "conf": 0.7765136361122131
+   },
+   {
+    "text": "i'm trying to raise my credit score can you tell me what it is now",
+    "gold": "credit_score",
+    "pred": "improve_credit_score",
+    "conf": 0.9841240048408508
+   },
+   {
+    "text": "how do i apply do get myself a visa",
+    "gold": "new_card",
+    "pred": "international_visa",
+    "conf": 0.9845949411392212
+   },
+   {
+    "text": "sorry i missed that",
+    "gold": "repeat",
+    "pred": "goodbye",
+    "conf": 0.33730611205101013
+   },
+   {
+    "text": "where can i find information on oil changes for my car",
+    "gold": "oil_change_when",
+    "pred": "oil_change_how",
+    "conf": 0.9813319444656372
+   },
+   {
+    "text": "what are the manufacturers guidance on oil changes",
+    "gold": "oil_change_when",
+    "pred": "oil_change_how",
+    "conf": 0.9429064989089966
+   },
+   {
+    "text": "please let's do it",
+    "gold": "yes",
+    "pred": "goodbye",
+    "conf": 0.281738817691803
+   },
+   {
+    "text": "can we please",
+    "gold": "yes",
+    "pred": "what_can_i_ask_you",
+    "conf": 0.10641301423311234
+   },
+   {
+    "text": "10-4",
+    "gold": "yes",
+    "pred": "calculator",
+    "conf": 0.9744948744773865
+   },
+   {
+    "text": "ya",
+    "gold": "yes",
+    "pred": "thank_you",
+    "conf": 0.4511559009552002
+   },
+   {
+    "text": "great",
+    "gold": "yes",
+    "pred": "thank_you",
+    "conf": 0.5904710292816162
+   },
+   {
+    "text": "you can vacuuming of my todo list",
+    "gold": "todo_list_update",
+    "pred": "todo_list",
+    "conf": 0.7914474606513977
+   },
+   {
+    "text": "that's a negatory",
+    "gold": "no",
+    "pred": "yes",
+    "conf": 0.7580609321594238
+   },
+   {
+    "text": "on tuesday you are supposed to have a meeting",
+    "gold": "calendar",
+    "pred": "schedule_meeting",
+    "conf": 0.9500651955604553
+   },
+   {
+    "text": "you have yo go to school on calendar",
+    "gold": "calendar",
+    "pred": "calendar_update",
+    "conf": 0.8754886984825134
+   },
+   {
+    "text": "i bought 6 shirts at $499 each what was my total expenditure for them",
+    "gold": "calculator",
+    "pred": "spending_history",
+    "conf": 0.9094520807266235
+   },
+   {
+    "text": "i spent 34 dollars for 12 gallons of paint what is the average price for each gallon",
+    "gold": "calculator",
+    "pred": "measurement_conversion",
+    "conf": 0.2763306498527527
+   },
+   {
+    "text": "what will tomorrow be on the calendar",
+    "gold": "date",
+    "pred": "calendar",
+    "conf": 0.9611997008323669
+   },
+   {
+    "text": "can i bring perfume on the plane or what is the size limit",
+    "gold": "carry_on",
+    "pred": "credit_limit",
+    "conf": 0.19232217967510223
+   },
+   {
+    "text": "what are the rules for traveling with toothpaste",
+    "gold": "carry_on",
+    "pred": "travel_suggestion",
+    "conf": 0.3950052857398987
+   },
+   {
+    "text": "i need to know how many days i toof off",
+    "gold": "pto_used",
+    "pred": "pto_balance",
+    "conf": 0.7588077187538147
+   },
+   {
+    "text": "how much of my pto is left",
+    "gold": "pto_used",
+    "pred": "pto_balance",
+    "conf": 0.8491482138633728
+   },
+   {
+    "text": "find out the next available date and time i can go to get my oil changed please",
+    "gold": "schedule_maintenance",
+    "pred": "oil_change_when",
+    "conf": 0.9794567227363586
+   },
+   {
+    "text": "can you let me know the next open slot for me to get my oil changed",
+    "gold": "schedule_maintenance",
+    "pred": "oil_change_when",
+    "conf": 0.9470331072807312
+   }
+  ],
+  "DistilBERT-KD (fp32)": [
+   {
+    "text": "repeat what the weather will be like",
+    "gold": "transfer",
+    "pred": "weather",
+    "conf": 0.979087233543396
+   },
+   {
+    "text": "who set up the numbers for it",
+    "gold": "timer",
+    "pred": "who_made_you",
+    "conf": 0.11547930538654327
+   },
+   {
+    "text": "what is the definiton of auspicious",
+    "gold": "definition",
+    "pred": "oos",
+    "conf": 0.9131162166595459
+   },
+   {
+    "text": "please explain the word catastrophic to me",
+    "gold": "definition",
+    "pred": "oos",
+    "conf": 0.7457790970802307
+   },
+   {
+    "text": "is there a reason beyond biology about why humans are alive",
+    "gold": "meaning_of_life",
+    "pred": "oos",
+    "conf": 0.5660732388496399
+   },
+   {
+    "text": "how do i sign up for a new allstatedplan",
+    "gold": "insurance_change",
+    "pred": "oos",
+    "conf": 0.40115541219711304
+   },
+   {
+    "text": "what are the travel conditions for haiti",
+    "gold": "travel_alert",
+    "pred": "weather",
+    "conf": 0.4466300904750824
+   },
+   {
+    "text": "does the state department say anything about traveling to haiti",
+    "gold": "travel_alert",
+    "pred": "travel_suggestion",
+    "conf": 0.27739906311035156
+   },
+   {
+    "text": "vacation request information",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.5529041290283203
+   },
+   {
+    "text": "vacation request please",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.6223772764205933
+   },
+   {
+    "text": "i have a revolving store card and defaulted so will my fico score be affected",
+    "gold": "improve_credit_score",
+    "pred": "report_fraud",
+    "conf": 0.8451406955718994
+   },
+   {
+    "text": "will my fico score decrease if i increase my student loan debt",
+    "gold": "improve_credit_score",
+    "pred": "credit_limit_change",
+    "conf": 0.5690904855728149
+   },
+   {
+    "text": "what day will i earn my payment from work",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.9611523747444153
+   },
+   {
+    "text": "what day can i expect to receive payment on",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.9798276424407959
+   },
+   {
+    "text": "when will my payment be deposited",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.9694552421569824
+   },
+   {
+    "text": "can credit card companies expedite delivery of reissued credit cards",
+    "gold": "replacement_card_duration",
+    "pred": "expiration_date",
+    "conf": 0.49118703603744507
+   },
+   {
+    "text": "can you call the help desk line for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "make_call",
+    "conf": 0.9386744499206543
+   },
+   {
+    "text": "how can i request a new credit card",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.9886173605918884
+   },
+   {
+    "text": "what's the phone number for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "find_phone",
+    "conf": 0.5429108738899231
+   },
+   {
+    "text": "is it after noon",
+    "gold": "time",
+    "pred": "date",
+    "conf": 0.633857786655426
+   },
+   {
+    "text": "tell time for another city: dallas",
+    "gold": "time",
+    "pred": "distance",
+    "conf": 0.908312976360321
+   },
+   {
+    "text": "ai answer my questions with my name first which is deb",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.9403419494628906
+   },
+   {
+    "text": "change name for me",
+    "gold": "change_user_name",
+    "pred": "change_ai_name",
+    "conf": 0.8771675825119019
+   },
+   {
+    "text": "a hidden government facility",
+    "gold": "where_are_you_from",
+    "pred": "oos",
+    "conf": 0.1285635232925415
+   },
+   {
+    "text": "what are you programmed to do for me",
+    "gold": "what_can_i_ask_you",
+    "pred": "who_do_you_work_for",
+    "conf": 0.7050351500511169
+   },
+   {
+    "text": "i'd like to make a reservation at rooth chris, can you do that",
+    "gold": "restaurant_reservation",
+    "pred": "accept_reservations",
+    "conf": 0.978570282459259
+   },
+   {
+    "text": "are there any open reservations at outback tonight",
+    "gold": "restaurant_reservation",
+    "pred": "accept_reservations",
+    "conf": 0.9920199513435364
+   },
+   {
+    "text": "what's the mileage to get the the taj mahal in atlantic city",
+    "gold": "distance",
+    "pred": "mpg",
+    "conf": 0.977436363697052
+   },
+   {
+    "text": "do i have a ways to go or am i close to getting to penn station",
+    "gold": "distance",
+    "pred": "directions",
+    "conf": 0.9552229046821594
+   },
+   {
+    "text": "what's your designation",
+    "gold": "user_name",
+    "pred": "what_is_your_name",
+    "conf": 0.9763494729995728
+   },
+   {
+    "text": "what time is it in phoenix",
+    "gold": "timezone",
+    "pred": "time",
+    "conf": 0.9922284483909607
+   },
+   {
+    "text": "is my visa bill over my limit this month",
+    "gold": "transactions",
+    "pred": "credit_limit",
+    "conf": 0.9324467778205872
+   },
+   {
+    "text": "what have i spent things on",
+    "gold": "transactions",
+    "pred": "spending_history",
+    "conf": 0.983873188495636
+   },
+   {
+    "text": "show what i have spent things on",
+    "gold": "transactions",
+    "pred": "spending_history",
+    "conf": 0.9837327599525452
+   },
+   {
+    "text": "how much have i spent on my debit card this month",
+    "gold": "transactions",
+    "pred": "spending_history",
+    "conf": 0.9504758715629578
+   },
+   {
+    "text": "how much was my last target trip",
+    "gold": "transactions",
+    "pred": "pto_used",
+    "conf": 0.43585216999053955
+   },
+   {
+    "text": "i need some suggestions for dinner places tonight",
+    "gold": "restaurant_suggestion",
+    "pred": "meal_suggestion",
+    "conf": 0.6684934496879578
+   },
+   {
+    "text": "today my electric bill will be paid, or should be",
+    "gold": "pay_bill",
+    "pred": "bill_due",
+    "conf": 0.9070899486541748
+   },
+   {
+    "text": "today is the day i should pay my electric bill",
+    "gold": "pay_bill",
+    "pred": "bill_due",
+    "conf": 0.9858183264732361
+   },
+   {
+    "text": "any news on my vacation",
+    "gold": "pto_request_status",
+    "pred": "pto_balance",
+    "conf": 0.4776768982410431
+   },
+   {
+    "text": "any new info on my vacation",
+    "gold": "pto_request_status",
+    "pred": "pto_balance",
+    "conf": 0.8722792863845825
+   },
+   {
+    "text": "when will i hear back about my days off",
+    "gold": "pto_request_status",
+    "pred": "next_holiday",
+    "conf": 0.6194668412208557
+   },
+   {
+    "text": "i'm trying to raise my credit score can you tell me what it is now",
+    "gold": "credit_score",
+    "pred": "improve_credit_score",
+    "conf": 0.989749014377594
+   },
+   {
+    "text": "where can i find information on oil changes for my car",
+    "gold": "oil_change_when",
+    "pred": "oil_change_how",
+    "conf": 0.963050365447998
+   },
+   {
+    "text": "what are the manufacturers guidance on oil changes",
+    "gold": "oil_change_when",
+    "pred": "oil_change_how",
+    "conf": 0.9618827104568481
+   },
+   {
+    "text": "that checks out",
+    "gold": "yes",
+    "pred": "order_checks",
+    "conf": 0.9798030257225037
+   },
+   {
+    "text": "please let's do it",
+    "gold": "yes",
+    "pred": "cancel",
+    "conf": 0.324037104845047
+   },
+   {
+    "text": "can we please",
+    "gold": "yes",
+    "pred": "maybe",
+    "conf": 0.2593773603439331
+   },
+   {
+    "text": "10-4",
+    "gold": "yes",
+    "pred": "calculator",
+    "conf": 0.9756313562393188
+   },
+   {
+    "text": "ya",
+    "gold": "yes",
+    "pred": "greeting",
+    "conf": 0.9339247941970825
+   },
+   {
+    "text": "yup",
+    "gold": "yes",
+    "pred": "greeting",
+    "conf": 0.40327635407447815
+   },
+   {
+    "text": "please note vacuuming on my to do list",
+    "gold": "todo_list_update",
+    "pred": "todo_list",
+    "conf": 0.6467193961143494
+   },
+   {
+    "text": "you can vacuuming of my todo list",
+    "gold": "todo_list_update",
+    "pred": "todo_list",
+    "conf": 0.8819841742515564
+   },
+   {
+    "text": "can i change your talking voice",
+    "gold": "change_speed",
+    "pred": "whisper_mode",
+    "conf": 0.4507167339324951
+   },
+   {
+    "text": "is my meeting with frank on my calendar",
+    "gold": "calendar",
+    "pred": "meeting_schedule",
+    "conf": 0.6533565521240234
+   },
+   {
+    "text": "have i gotten around to adding the bike ride to my calendar yet",
+    "gold": "calendar",
+    "pred": "calendar_update",
+    "conf": 0.8676685094833374
+   },
+   {
+    "text": "retrieve events on my calendar",
+    "gold": "calendar",
+    "pred": "calendar_update",
+    "conf": 0.6987234950065613
+   },
+   {
+    "text": "on tuesday you are supposed to have a meeting",
+    "gold": "calendar",
+    "pred": "schedule_meeting",
+    "conf": 0.9917888045310974
+   },
+   {
+    "text": "i bought 6 shirts at $499 each what was my total expenditure for them",
+    "gold": "calculator",
+    "pred": "transactions",
+    "conf": 0.2453014850616455
+   },
+   {
+    "text": "i spent 34 dollars for 12 gallons of paint what is the average price for each gallon",
+    "gold": "calculator",
+    "pred": "exchange_rate",
+    "conf": 0.525922954082489
+   }
+  ],
+  "DistilBERT-KD (INT8)": [
+   {
+    "text": "repeat what the weather will be like",
+    "gold": "transfer",
+    "pred": "weather",
+    "conf": 0.9779128432273865
+   },
+   {
+    "text": "who set up the numbers for it",
+    "gold": "timer",
+    "pred": "oos",
+    "conf": 0.1215367466211319
+   },
+   {
+    "text": "what is the definiton of auspicious",
+    "gold": "definition",
+    "pred": "oos",
+    "conf": 0.9306350946426392
+   },
+   {
+    "text": "what does mature mean",
+    "gold": "definition",
+    "pred": "oos",
+    "conf": 0.6253052949905396
+   },
+   {
+    "text": "please explain the word catastrophic to me",
+    "gold": "definition",
+    "pred": "oos",
+    "conf": 0.7608799338340759
+   },
+   {
+    "text": "is there a reason beyond biology about why humans are alive",
+    "gold": "meaning_of_life",
+    "pred": "oos",
+    "conf": 0.6405752897262573
+   },
+   {
+    "text": "what's the answer to it all",
+    "gold": "meaning_of_life",
+    "pred": "what_song",
+    "conf": 0.36115455627441406
+   },
+   {
+    "text": "how do i sign up for a new allstatedplan",
+    "gold": "insurance_change",
+    "pred": "oos",
+    "conf": 0.6192986965179443
+   },
+   {
+    "text": "what are the travel conditions for haiti",
+    "gold": "travel_alert",
+    "pred": "weather",
+    "conf": 0.7011594176292419
+   },
+   {
+    "text": "does the state department say anything about traveling to haiti",
+    "gold": "travel_alert",
+    "pred": "travel_suggestion",
+    "conf": 0.26696476340293884
+   },
+   {
+    "text": "vacation request information",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.8355590105056763
+   },
+   {
+    "text": "vacation request please",
+    "gold": "pto_request",
+    "pred": "pto_request_status",
+    "conf": 0.8610026240348816
+   },
+   {
+    "text": "how can i up my credit score",
+    "gold": "improve_credit_score",
+    "pred": "credit_score",
+    "conf": 0.7871540784835815
+   },
+   {
+    "text": "i have a revolving store card and defaulted so will my fico score be affected",
+    "gold": "improve_credit_score",
+    "pred": "report_fraud",
+    "conf": 0.5311896204948425
+   },
+   {
+    "text": "will my fico score decrease if i increase my student loan debt",
+    "gold": "improve_credit_score",
+    "pred": "credit_limit_change",
+    "conf": 0.5385795831680298
+   },
+   {
+    "text": "please speak in tagalog",
+    "gold": "change_language",
+    "pred": "translate",
+    "conf": 0.5525956749916077
+   },
+   {
+    "text": "what day will i earn my payment from work",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.932861328125
+   },
+   {
+    "text": "what day can i expect to receive payment on",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.9417060017585754
+   },
+   {
+    "text": "when will my payment be deposited",
+    "gold": "payday",
+    "pred": "bill_due",
+    "conf": 0.8813546299934387
+   },
+   {
+    "text": "can you call the help desk line for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "make_call",
+    "conf": 0.934023380279541
+   },
+   {
+    "text": "how can i request a new credit card",
+    "gold": "replacement_card_duration",
+    "pred": "new_card",
+    "conf": 0.9830068349838257
+   },
+   {
+    "text": "what's the phone number for my credit card company",
+    "gold": "replacement_card_duration",
+    "pred": "find_phone",
+    "conf": 0.34668847918510437
+   },
+   {
+    "text": "is it after noon",
+    "gold": "time",
+    "pred": "date",
+    "conf": 0.49701616168022156
+   },
+   {
+    "text": "tell time for another city: dallas",
+    "gold": "time",
+    "pred": "distance",
+    "conf": 0.8211370706558228
+   },
+   {
+    "text": "can you call me a different name",
+    "gold": "change_user_name",
+    "pred": "change_ai_name",
+    "conf": 0.603017270565033
+   },
+   {
+    "text": "can you call me a different name, please",
+    "gold": "change_user_name",
+    "pred": "change_ai_name",
+    "conf": 0.7306594252586365
+   },
+   {
+    "text": "ai answer my questions with my name first which is deb",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.9286626577377319
+   },
+   {
+    "text": "please switch my name",
+    "gold": "change_user_name",
+    "pred": "user_name",
+    "conf": 0.6099711060523987
+   },
+   {
+    "text": "change name for me",
+    "gold": "change_user_name",
+    "pred": "change_ai_name",
+    "conf": 0.5931465029716492
+   },
+   {
+    "text": "a hidden government facility",
+    "gold": "where_are_you_from",
+    "pred": "report_lost_card",
+    "conf": 0.12474074959754944
+   },
+   {
+    "text": "what are you programmed to do for me",
+    "gold": "what_can_i_ask_you",
+    "pred": "what_are_your_hobbies",
+    "conf": 0.33114761114120483
+   },
+   {
+    "text": "i'd like to make a reservation at rooth chris, can you do that",
+    "gold": "restaurant_reservation",
+    "pred": "accept_reservations",
+    "conf": 0.9516427516937256
+   },
+   {
+    "text": "5 people are going to be at tropicana by 8pm, reserve the table under martins name please",
+    "gold": "restaurant_reservation",
+    "pred": "how_busy",
+    "conf": 0.7841100096702576
+   },
+   {
+    "text": "are there any open reservations at outback tonight",
+    "gold": "restaurant_reservation",
+    "pred": "accept_reservations",
+    "conf": 0.9820716977119446
+   },
+   {
+    "text": "is there a reservation for mark at mimis",
+    "gold": "confirm_reservation",
+    "pred": "accept_reservations",
+    "conf": 0.36562278866767883
+   },
+   {
+    "text": "how do i do a 401(k) rollover",
+    "gold": "rollover_401k",
+    "pred": "oos",
+    "conf": 0.8967189788818359
+   },
+   {
+    "text": "what's the mileage to get the the taj mahal in atlantic city",
+    "gold": "distance",
+    "pred": "mpg",
+    "conf": 0.9223425984382629
+   },
+   {
+    "text": "when will i arrive at hy-vee",
+    "gold": "distance",
+    "pred": "how_busy",
+    "conf": 0.729525625705719
+   },
+   {
+    "text": "give me an eta on when i will arrive at my destination",
+    "gold": "distance",
+    "pred": "flight_status",
+    "conf": 0.5056800842285156
+   },
+   {
+    "text": "do i have a ways to go or am i close to getting to penn station",
+    "gold": "distance",
+    "pred": "directions",
+    "conf": 0.9489973783493042
+   },
+   {
+    "text": "what's your designation",
+    "gold": "user_name",
+    "pred": "what_is_your_name",
+    "conf": 0.9680658578872681
+   },
+   {
+    "text": "what time is it in phoenix",
+    "gold": "timezone",
+    "pred": "time",
+    "conf": 0.988958477973938
+   },
+   {
+    "text": "is my visa bill over my limit this month",
+    "gold": "transactions",
+    "pred": "credit_limit",
+    "conf": 0.9627510905265808
+   },
+   {
+    "text": "what have i spent things on",
+    "gold": "transactions",
+    "pred": "spending_history",
+    "conf": 0.9628010392189026
+   },
+   {
+    "text": "show what i have spent things on",
+    "gold": "transactions",
+    "pred": "spending_history",
+    "conf": 0.9756594896316528
+   },
+   {
+    "text": "how much have i spent on my debit card this month",
+    "gold": "transactions",
+    "pred": "spending_history",
+    "conf": 0.7855101823806763
+   },
+   {
+    "text": "how much was my last target trip",
+    "gold": "transactions",
+    "pred": "pto_used",
+    "conf": 0.23281948268413544
+   },
+   {
+    "text": "today my electric bill will be paid, or should be",
+    "gold": "pay_bill",
+    "pred": "bill_due",
+    "conf": 0.7731702327728271
+   },
+   {
+    "text": "today is the day i should pay my electric bill",
+    "gold": "pay_bill",
+    "pred": "bill_due",
+    "conf": 0.9755247831344604
+   },
+   {
+    "text": "looking at this week only, have i overspent on hoagies",
+    "gold": "spending_history",
+    "pred": "restaurant_reviews",
+    "conf": 0.33934277296066284
+   },
+   {
+    "text": "when will i hear back about my days off",
+    "gold": "pto_request_status",
+    "pred": "pto_balance",
+    "conf": 0.5214218497276306
+   },
+   {
+    "text": "i'm trying to raise my credit score can you tell me what it is now",
+    "gold": "credit_score",
+    "pred": "improve_credit_score",
+    "conf": 0.9727336764335632
+   },
+   {
+    "text": "i didn't catch that",
+    "gold": "repeat",
+    "pred": "maybe",
+    "conf": 0.4198078215122223
+   },
+   {
+    "text": "where can i find information on oil changes for my car",
+    "gold": "oil_change_when",
+    "pred": "oil_change_how",
+    "conf": 0.9677957892417908
+   },
+   {
+    "text": "what are the manufacturers guidance on oil changes",
+    "gold": "oil_change_when",
+    "pred": "oil_change_how",
+    "conf": 0.8166657090187073
+   },
+   {
+    "text": "that checks out",
+    "gold": "yes",
+    "pred": "order_checks",
+    "conf": 0.959762692451477
+   },
+   {
+    "text": "10-4",
+    "gold": "yes",
+    "pred": "calculator",
+    "conf": 0.9148221611976624
+   },
+   {
+    "text": "ya",
+    "gold": "yes",
+    "pred": "greeting",
+    "conf": 0.9570171236991882
+   },
+   {
+    "text": "great",
+    "gold": "yes",
+    "pred": "thank_you",
+    "conf": 0.6754412055015564
+   },
+   {
+    "text": "please note vacuuming on my to do list",
+    "gold": "todo_list_update",
+    "pred": "todo_list",
+    "conf": 0.9202606081962585
+   }
+  ]
+ }
+}
